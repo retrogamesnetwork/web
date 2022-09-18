@@ -25,6 +25,17 @@
         // Initialize Firebase
         const app = initializeApp(firebaseConfig);
       </script>
+    <script>
+        function onSignIn(googleUser) {
+  var profile = googleUser.getBasicProfile();
+  console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+  console.log('Name: ' + profile.getName());
+  console.log('Image URL: ' + profile.getImageUrl());
+  console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+}
+    </script>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <meta name="google-signin-client_id" content="1025542945363-ua5jut76lch01db2714avri31o8udnc9.apps.googleusercontent.com">
     <style>
         html,
 body {
@@ -82,7 +93,7 @@ body {
             <button class="w-100 btn btn-lg btn-primary" type="submit">Login</button>
             <br>
             <br>
-            <button class="w-100 btn btn-lg btn-primary" type="submit">Login with Google</button>
+            <div class="g-signin2" data-onsuccess="onSignIn"></div>
             <p class="mt-5 mb-3 text-muted">© 2022 Retro Games Network</p>
           </form>
         </main>
