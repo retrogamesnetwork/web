@@ -6,6 +6,11 @@
     <title>Chat | Retro Games Network</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+  <style>
+    #messages {
+      list-style: none;
+    }
+    </style>
   </head>
   <body>
 <header class="p-3 mb-3 border-bottom">
@@ -47,10 +52,14 @@
       <ul id="messages"></ul>
 
       <!-- form to send message -->
-      <form id="message-form">
-        <input id="message-input" type="text" />
-        <button id="message-btn" type="submit">Send</button>
-      </form>
+      <div class="mb-3">
+        <form id="message-form">
+  <label for="message-input" class="form-label">Message</label>
+  <input type="text" class="form-control" id="message-input" placeholder="Type Here">
+          <button id="message-btn" type="submit" class="btn btn-primary">Send</button>
+        </form>
+</div>
+      
     </div>
     <!-- scripts -->
     <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
