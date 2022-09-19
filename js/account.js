@@ -6,7 +6,10 @@ function loadProfile() {
   velcome_message_text.innerHTML = "Welcome Back, " + username + "!";
   console.log("Profile Loaded");
 }
-login_button.addEventListener("click", function() {
+
+
+
+function loginclicked() {
   window.location.href = "https://retrogamesnetwork.github.io/web/launch.html";
   username = document.getElementById("floatingInput").value;
-});
+}
