@@ -13,7 +13,7 @@
 
 const db = firebase.database();
 
-const username = prompt("Enter a Username for the chatroom");
+const chat_username = prompt("Enter a Username for the chatroom");
 
 document.getElementById("message-form").addEventListener("submit", sendMessage);
 
@@ -35,7 +35,7 @@ function sendMessage(e) {
 
   // create db collection and send in the data
   db.ref("messages/" + timestamp).set({
-    username,
+    chat_username,
     message,
   });
 }
