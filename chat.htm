@@ -61,13 +61,26 @@
   <label for="message-input" class="form-label">Message</label>
   <input type="text" class="form-control" id="message-input" placeholder="Type Here">
           <button id="message-btn" type="submit" class="btn btn-primary">Send</button>
+          <input
+    type="hidden"
+    role="uploadcare-uploader"
+    data-public-key="401207fbaad0b34fe5bd"
+    data-multiple="true"
+    data-tabs="all"
+    data-effects="crop, flip, enhance, grayscale, blur, rotate, mirror, sharp, invert"
+/>
         </form>
 </div>
       
     </div>
+    <script>
+    uploadcare.registerTab('preview', uploadcareTabEffects)
+</script>
     <!-- scripts -->
     <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-database.js"></script>
     <script src="https://retrogamesnetwork.github.io/web/index.js"></script>
+    <script src="https://ucarecdn.com/libs/widget/3.x/uploadcare.lang.en.min.js"></script>
+<script src="https://ucarecdn.com/libs/widget-tab-effects/1.x/uploadcare.tab-effects.lang.en.min.js"></script>
   </body>
 </html>
