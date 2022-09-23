@@ -1,5 +1,10 @@
+function showLogin() {
+  window.href("#setupChat1")
+}
 
-  // Your web app's Firebase configuration
+window.onload = showLogin;
+
+// Your web app's Firebase configuration
 var firebaseConfig = {
   apiKey: "AIzaSyCYgieNluU4atVEYhCcUY5GC78eqYXBYsA",
   authDomain: "retro-games-network.firebaseapp.com",
@@ -16,7 +21,7 @@ firebase.initializeApp(firebaseConfig);
 const db = firebase.database();
 
 // get user's data
-const username = prompt("Please Tell Us Your Name");
+const username = document.getElementById("enterUsernameHere").value;
 
 // submit form
 // listen for submit event on the form and call the postChat function
