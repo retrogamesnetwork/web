@@ -21,7 +21,7 @@ firebase.initializeApp(firebaseConfig);
 const db = firebase.database();
 
 // get user's data
-const username = document.getElementById("enterUsernameHere").value;
+const username = prompt("Welcome to the Retro Games Network Public Chatroom, Please enter a username to continue")
 
 // submit form
 // listen for submit event on the form and call the postChat function
