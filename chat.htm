@@ -67,7 +67,7 @@
   <label for="message-input" class="form-label">Message</label>
   <input type="text" class="form-control" id="message-input" placeholder="Type Here">
           <button id="message-btn" type="submit" class="btn btn-primary">Send</button>
-          <button type="button" class="btn btn-dark position-relative">
+          <button type="button" class="btn btn-dark position-relative" data-bs-toggle="offcanvas" data-bs-target="#joinVoice" aria-controls="offcanvasExample">
   Invite to a Call
   <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-primary">
     BETA
@@ -114,6 +114,34 @@
     </div>
   </div>
 </div>
+
+<div class="offcanvas offcanvas-start" tabindex="-1" id="joinVoice" aria-labelledby="offcanvasExampleLabel">
+  <div class="offcanvas-header">
+   <span class="badge bg-primary">BETA</span>
+ <h5 class="offcanvas-title" id="offcanvasExampleLabel">Join a Call</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <div>
+      Invite a user, or join a call here. Enter the call ID or link to join the call. Please note that this feature is still in beta and you may encounter some bugs. For more information about beta features check out the article <a href=”#”>by clicking here</a>.
+    </div>
+    <div class="row g-3 align-items-center">
+  <div class="col-auto">
+    <label for="callcode" class="col-form-label">Call ID or Link</label>
+  </div>
+  <div class="col-auto">
+    <input type="text" id="callcode" class="form-control">
+  </div>
+ </div>
+<hr>
+<h3>Joinable Calls</h3>
+<div class="spinner-border" role="status">
+  <span class="visually-hidden">Loading...</span>
+</div>
+
+    </div>
+</div>
+
 
     <script>
     uploadcare.registerTab('preview', uploadcareTabEffects)
