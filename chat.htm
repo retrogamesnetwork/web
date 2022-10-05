@@ -1,6 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <script>
+      // get a widget reference
+const widget = uploadcare.Widget("[role=uploadcare-uploader]");
+
+// listen to the "upload completed" event
+widget.onUploadComplete(fileInfo => {
+  // get a CDN URL from the file info
+  alert(fileInfo.uuid);
+});
+    </script>
+    <script src="https://ucarecdn.com/libs/widget/3.x/uploadcare.lang.en.min.js"></script>
+    <script src="https://ucarecdn.com/libs/widget/3.x/uploadcare.lang.en.min.js"></script>
+<script src="https://ucarecdn.com/libs/widget-tab-effects/1.x/uploadcare.tab-effects.lang.en.min.js"></script>
+    <script>
+    uploadcare.registerTab('preview', uploadcareTabEffects)
+    UPLOADCARE_LOCALE_TRANSLATIONS = {
+        buttons: {
+            choose: {
+                files: {
+                    other: 'Upload File'
+                }
+            }
+        }
+    }
+</script>
     <script type="module">
   // Import the functions you need from the SDKs you need
   import { initializeApp } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js";
@@ -97,7 +122,14 @@
     BETA
     <span class="visually-hidden">beta feature</span>
   </span>
-          </button><div class="pickerContainer"></div><script>import { createPicker } from 'picmo';
+          </button><input
+    type="hidden"
+    role="uploadcare-uploader"
+    data-public-key="8fe69fea75d3a9528d8f"
+    data-multiple="true"
+    data-tabs="all"
+    data-effects="crop, flip, enhance, grayscale, blur, rotate, mirror, sharp, invert"
+/><div class="pickerContainer"></div><script>import { createPicker } from 'picmo';
 
 const container = document.querySelector('.pickerContainer');
 const picker = createPicker({
