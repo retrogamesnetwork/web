@@ -97,7 +97,15 @@
     BETA
     <span class="visually-hidden">beta feature</span>
   </span>
-</button>
+          </button><div class="pickerContainer"></div><script>import { createPicker } from 'picmo';
+
+const container = document.querySelector('.pickerContainer');
+const picker = createPicker({
+  rootElement: container
+});</script>
+          <script src="https://cdn.jsdelivr.net/npm/picmo@latest/dist/umd/index.js"></script>
+          <script src="https://cdn.jsdelivr.net/npm/@picmo/popup-picker@latest/dist/umd/index.js"></script>
+          <script src="https://cdn.jsdelivr.net/npm/@picmo/renderer-twemoji@latest/dist/umd/index.js"></script>
         </form>
 </div>
       
