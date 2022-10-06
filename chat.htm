@@ -1,221 +1,128 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <script>
-      // get a widget reference
-const widget = uploadcare.Widget("[role=uploadcare-uploader]");
+<html>
 
-// listen to the "upload completed" event
-widget.onUploadComplete(fileInfo => {
-  // get a CDN URL from the file info
-  alert(fileInfo.uuid);
-});
-    </script>
-    <script src="https://ucarecdn.com/libs/widget/3.x/uploadcare.lang.en.min.js"></script>
-    <script src="https://ucarecdn.com/libs/widget/3.x/uploadcare.lang.en.min.js"></script>
-<script src="https://ucarecdn.com/libs/widget-tab-effects/1.x/uploadcare.tab-effects.lang.en.min.js"></script>
-    <script>
-    uploadcare.registerTab('preview', uploadcareTabEffects)
-    UPLOADCARE_LOCALE_TRANSLATIONS = {
-        buttons: {
-            choose: {
-                files: {
-                    other: 'Upload File'
-                }
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    <style type="text/css">
+        body {
+            font-family: Inter, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            overflow: hidden;
+            padding: 67px 0 0 0;
+            position: relative;
+            text-align: center;
+            width: 100%;
+        }
+
+        .content {
+            flex: 1 0 auto;
+        }
+
+        .iconography {
+            flex: 0 1 auto;
+        }
+
+        h1 {
+            color: #141414;
+            font-size: 28px;
+            font-weight: 400;
+            line-height: 34px;
+            margin: 0 0 20px 0;
+        }
+
+        h2 {
+            color: #131313;
+            font-size: 18px;
+            font-weight: 400;
+            line-height: 26px;
+            margin: 20px 0 56px 0;
+        }
+
+        p {
+            color: #101010;
+            font-size: 14px;
+            line-height: 20px;
+            margin: 0 0 20px 0;
+        }
+
+        p:last-child {
+            margin-bottom: 0;
+        }
+
+        svg {
+            height: 380px;
+            opacity: 0.2;
+            transform: translate(-20%, 20%);
+            width: 430px;
+        }
+
+        @media screen and (min-width: 400px) {
+            .container {
+                flex-direction: row;
+                padding: 0;
+            }
+
+            .content {
+                display: flex;
+                flex-direction: column;
+                flex: 1 1 50%;
+                justify-content: center;
+                padding: 20px;
+                text-align: left;
+            }
+
+            .iconography {
+                flex: 1 1 50%;
+                order: -5;
+            }
+
+            h1 {
+                font-size: 32px;
+                line-height: 40px;
+                margin-bottom: 28px;
+            }
+
+            h2 {
+                margin: 28px 0 64px 0;
+            }
+
+            p {
+                font-size: 16px;
+                line-height: 22px;
+            }
+
+            svg {
+                width: 100%;
+                height: auto;
             }
         }
-    }
-</script>
-    <script type="module">
-  // Import the functions you need from the SDKs you need
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js";
-  import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-analytics.js";
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
-
-  // Your web app's Firebase configuration
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-  const firebaseConfig = {
-    apiKey: "AIzaSyCYgieNluU4atVEYhCcUY5GC78eqYXBYsA",
-    authDomain: "retro-games-network.firebaseapp.com",
-    databaseURL: "https://retro-games-network-default-rtdb.firebaseio.com",
-    projectId: "retro-games-network",
-    storageBucket: "retro-games-network.appspot.com",
-    messagingSenderId: "1025542945363",
-    appId: "1:1025542945363:web:c4d81a05a8a9d8809564a6",
-    measurementId: "G-K621KEQ8KF"
-  };
-
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
-</script>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Chat | Retro Games Network</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
-  <style>
-    #messages {
-      list-style: none;
-    }
     </style>
-  </head>
-  <body>
-<header class="p-3 mb-3 border-bottom">
-        <div class="container">
-          <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-            <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none">
-              <img src="branding/white-bg-icon.png" width="40" height="32">
-            </a>
-    
-            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-              <li><a href="launch.html" class="nav-link px-2 link-dark">Catalog</a></li>
-              <li><a href="download.htm" class="nav-link px-2 link-dark">Download</a></li>
-              <li><a href="chat.htm" class="nav-link px-2 link-secondary">Chat</a></li>
-              <li><a href="developers.htm" class="nav-link px-2 link-dark">Developers</a></li>
-              <li><a href="support.htm" class="nav-link px-2 link-dark">Support</a></li>
-            </ul>
-    
-            <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
-              <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
-            </form>
-    
-            <div class="dropdown text-end">
-              <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                <img src="account/guest.png" alt="mdo" width="32" height="32" class="rounded-circle">
-              </a>
-              <ul class="dropdown-menu text-small" style="">
-                <li><a class="dropdown-item" href="#">My Games</a></li>
-                <li><a class="dropdown-item" href="https://retrogamesnetwork.github.io/web/account/myaccount.htm">Settings</a></li>
-                <li><a class="dropdown-item" href="https://retrogamesnetwork.github.io/web/account/myaccount.htm">Profile</a></li>
-                <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="#">Sign out</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </header>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js" integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous"></script>
+</head>
 
+<body>
+    <article class="container">
+        <section class="content" role="alert">
+            <h1>503 Error</h1>
+            <h2>The page you requested is temporarily unavailable.</h2>
+            <p>
+                We’re working to get things back online as quickly as possible.
+            </p>
+            <p>
+                Please try again shortly.
+            </p>
+        </section>
+        <section class="iconography">
+            <svg width="84" height="74" viewBox="0 0 84 74" xmlns="http://www.w3.org/2000/svg">
+                <path d="M78 .5H6A5.51 5.51 0 00.5 6v62A5.51 5.51 0 006 73.5h72a5.51 5.51 0 005.5-5.5V6A5.51 5.51 0 0078 .5zM3.5 6A2.5 2.5 0 016 3.5h72A2.5 2.5 0 0180.5 6v6.5h-77V6zm77 62a2.5 2.5 0 01-2.5 2.5H6A2.5 2.5 0 013.5 68V15.5h77V68zM78 8a2 2 0 11-4 0 2 2 0 014 0zm-8 0a2 2 0 11-4 0 2 2 0 014 0zm-8 0a2 2 0 11-4 0 2 2 0 014 0zM42 61.5c10.217 0 18.5-8.283 18.5-18.5S52.217 24.5 42 24.5 23.5 32.783 23.5 43c.011 10.213 8.287 18.489 18.5 18.5zm0-34c8.56 0 15.5 6.94 15.5 15.5 0 8.56-6.94 15.5-15.5 15.5-8.56 0-15.5-6.94-15.5-15.5.011-8.556 6.944-15.489 15.5-15.5zm-1.5 17.67V34.63a1.5 1.5 0 013 0v10.54a1.5 1.5 0 01-3 0zm-.36 6.2a1.86 1.86 0 113.72 0 1.86 1.86 0 01-3.72 0z" fill="#000" fill-rule="nonzero" /></svg>
+        </section>
+    </article>
+</body>
 
-
-
-    <br>
-    
-    <br>
-    <br>
-    <div id="chat">
-      <!-- messages will display here -->
-      <ul id="messages"></ul>
-
-      <!-- form to send message -->
-      <div class="mb-3" style="padding: 30px;">
-        <form id="message-form" class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
-  <label for="message-input" class="form-label">Message</label>
-  <input type="text" class="form-control" id="message-input" placeholder="Type Here">
-          <button id="message-btn" type="submit" class="btn btn-primary">Send</button>
-          <button type="button" class="btn btn-dark position-relative" data-bs-toggle="offcanvas" data-bs-target="#joinVoice" aria-controls="offcanvasExample">
-  Invite to a Call
-  <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-primary">
-    BETA
-    <span class="visually-hidden">beta feature</span>
-  </span>
-          </button><input
-    type="hidden"
-    role="uploadcare-uploader"
-    data-public-key="8fe69fea75d3a9528d8f"
-    data-multiple="true"
-    data-tabs="all"
-    data-effects="crop, flip, enhance, grayscale, blur, rotate, mirror, sharp, invert"
-/><div class="pickerContainer"></div><script>import { createPicker } from 'picmo';
-
-const container = document.querySelector('.pickerContainer');
-const picker = createPicker({
-  rootElement: container
-});</script>
-          <script src="https://cdn.jsdelivr.net/npm/picmo@latest/dist/umd/index.js"></script>
-          <script src="https://cdn.jsdelivr.net/npm/@picmo/popup-picker@latest/dist/umd/index.js"></script>
-          <script src="https://cdn.jsdelivr.net/npm/@picmo/renderer-twemoji@latest/dist/umd/index.js"></script>
-        </form>
-</div>
-      
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js" integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous"></script>
-
-<div class="modal fade" id="setupChat1" data-bs-backdrop="static" data-bs-keyboard="false"
- aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalToggleLabel">Login</h5>
-        
-      </div>
-      <div class="modal-body">
-        Welcome! Please login to your account to access this part of the website!
-<form>
-  <div class="mb-3">
-    <label for="enterUsernameHere" class="form-label">Username</label>
-    <input type="text" class="form-control" id="enterUsernameHere">
-  </div>
-  <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1">
-  </div>
-  <div class="mb-3 form-check">
-    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-    <label class="form-check-label" for="exampleCheck1">Check me out</label>
-  </div>
-
-      </div>
-      <div class="modal-footer">
-        <button type=”submit” class="btn btn-primary" data-bs-dismiss="modal" data-bs-toggle="modal">Login</button>
-
-      </div>
-</form>
-    </div>
-  </div>
-</div>
-
-<div class="offcanvas offcanvas-start" tabindex="-1" id="joinVoice" aria-labelledby="offcanvasExampleLabel">
-  <div class="offcanvas-header">
-   <span class="badge bg-primary">BETA</span>
- <h5 class="offcanvas-title" id="offcanvasExampleLabel">Join a Call</h5>
-    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-  </div>
-  <div class="offcanvas-body">
-    <div>
-      Invite a user, or join a call here. Enter the call ID or link to join the call. Please note that this feature is still in beta and you may encounter some bugs. For more information about beta features check out the article <a href=”#”>by clicking here</a>.
-    </div>
-    <br>
-    <div class="row g-3 align-items-center">
-  <div class="col-auto">
-    <label for="callcode" class="col-form-label">Call ID or Link</label>
-     <button type="button" class="btn btn-dark" onclick="window.open('https://retrogamesnetwork.000webhostapp.com/');">
-  Create a New Call
-</button>
-  </div>
-  <div class="col-auto">
-    <input type="text" id="callcode" class="form-control">
-  </div>
- </div>
-<hr>
-<h5>Joinable Calls</h5>
-
-    </div>
-</div>
-
-
-    <script>
-    uploadcare.registerTab('preview', uploadcareTabEffects)
-</script>
-    <!-- scripts -->
-    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-database.js"></script>
-    <script src="https://retrogamesnetwork.github.io/web/index.js"></script>
-    <script src="https://ucarecdn.com/libs/widget/3.x/uploadcare.lang.en.min.js"></script>
-<script src="https://ucarecdn.com/libs/widget-tab-effects/1.x/uploadcare.tab-effects.lang.en.min.js"></script>
-  </body>
 </html>
