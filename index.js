@@ -48,7 +48,6 @@ function sendMessage(e) {
   db.ref("messages/" + timestamp).set({
     username,
     message,
-    timestamp,
   });
 }
 
@@ -61,7 +60,7 @@ fetchChat.on("child_added", function (snapshot) {
   const messages = snapshot.val();
   const message = `<li class=${
     username === messages.username ? "sent" : "receive"
-  }><span><strong>${messages.username}: </strong></span>${messages.message}<span style="color:gray;font-size:small;">${messages.timestamp}</span></li>`;
+  }><span><strong>${messages.username}<br></strong></span>${messages.message}</li><hr>`;
   // append the message on the page
   document.getElementById("messages").innerHTML += message;
 });
