@@ -20,12 +20,12 @@ firebase.initializeApp(firebaseConfig);
 // initialize database
 const db = firebase.database();
 
+var newLine = "\r\n"
 // get user's data
+const rules = alert("Welcome to the RETRO GAMES NETWORK Chatroom! Please abide by the rules when sending messages or using this service. All innaproprate images, videos, links, messages, or anything, is prohibited. Any spam, exploits, or lag scripts are not allowed and you can recieve serious consequences. And just be nice to others, no innaproprate language and basic things like those. Thank you, and have a wonderful time!")
 const username = prompt("Please enter your username");
-const profile_picture_url = prompt("(OPTIONAL) PROFILE PICTURE URL. IF YOU DO NOT WANT TO ADD A PROFILE PICTURE JUST CLICK CANCEL. PROFILE PICTURE URLS MUST BE VALID IMAGE URLS AND BE APPROPRATE");
-if (profile_picture_url = "") {
-  profile_picture_url = "https://retrogamesnetwork.github.io/web/account/guest.png"
-};
+const profile_picture_url = prompt("Please paste the URL or Image Address for your profile picture. Innaproprate decals will be removed along with an account suspension");
+const conform = alert("Please conform the following information is correct" + newLine + "Username: " + username + newLine + "Profile Picture URL: " + profile_picture_url)
 
 // submit form
 // listen for submit event on the form and call the postChat function
@@ -53,6 +53,7 @@ function sendMessage(e) {
     username,
     message,
     profile_picture_url,
+    full_name,
   });
 }
 
