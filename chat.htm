@@ -135,14 +135,15 @@ widget.onUploadComplete(fileInfo => {
       <div class="mb-3" style="padding: 30px;">
         <form id="message-form" class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
   <label for="message-input" class="form-label">Send a Message</label>
-  <input type="text" class="form-control" id="message-input" placeholder="Send your awesome message" style="padding-bottom:5px;">
+  <input type="text" class="form-control" id="message-input" placeholder="Send your awesome message">
           <button id="message-btn" type="submit" class="btn btn-primary">Send</button>
-          <button type="button" class="btn btn-dark position-relative" data-bs-toggle="offcanvas" data-bs-target="#joinVoice" aria-controls="offcanvasExample">Start a Video Call</button><input type="hidden" role="uploadcare-uploader" data-public-key="8fe69fea75d3a9528d8f" data-multiple="true" data-tabs="all" data-effects="crop, flip, enhance, grayscale, blur, rotate, mirror, sharp, invert"><div class="pickerContainer"></div><script>import { createPicker } from 'picmo';
-
+          <button type="button" class="btn btn-dark position-relative" data-bs-toggle="offcanvas" data-bs-target="#joinVoice" aria-controls="offcanvasExample">Start a Video Call</button><input type="hidden" role="uploadcare-uploader" data-public-key="8fe69fea75d3a9528d8f" data-multiple="true" data-tabs="all" data-effects="crop, flip, enhance, grayscale, blur, rotate, mirror, sharp, invert"><div class="pickerContainer"></div><script>import { createPicker } from 'picmo';</script>
+<script>
 const container = document.querySelector('.pickerContainer');
 const picker = createPicker({
   rootElement: container
-});</script>
+});
+            </script>
           <script src="https://cdn.jsdelivr.net/npm/picmo@latest/dist/umd/index.js"></script>
           <script src="https://cdn.jsdelivr.net/npm/@picmo/popup-picker@latest/dist/umd/index.js"></script>
           <script src="https://cdn.jsdelivr.net/npm/@picmo/renderer-twemoji@latest/dist/umd/index.js"></script>
