@@ -22,8 +22,8 @@ const db = firebase.database();
 
 // get user's data
 const rules = alert("Please abide by the Terms of Service and other rules while using the chatroom");alert("Spamming or any lag or server breaking exploits are not allowed and can get your account terminated");alert("Innaproprate, sexual, racist, or any types of hate comments or materials are not allowed to be send in the chat");alert("Please note that if an admin or mod finds you doing these things, your account will be terminated");alert("Thank you for abiding by the Terms of Service and Rules, have a wonderful time with the Retro Games Network chatroom.");
-const username = prompt("Please enter your username");
-const profile_picture_url = prompt("Please paste the URL or Image Address for your profile picture. Innaproprate decals will be removed along with an account suspension");
+const username = prompt("Please enter your username");if (username = "") {alert("Invalid Username, Please try again by reloading your page")}; if (username.includes("fuck" || "shit" || "bitch" || "cock" || "ass" || "pussy" "asshole" || "nigga" || "nigger" || "porn" || "sex" || "idiot" || "stupid", 0)) {alert("Innaproprate Username, Please reload your page to try again")};
+const profile_picture_url = prompt("(OPTIONAL) PROFILE PICTURE URL. IF YOU DO NOT WANT TO ADD A PROFILE PICTURE JUST CLICK CANCEL. PROFILE PICTURE URLS MUST BE VALID IMAGE URLS AND BE APPROPRATE");if (profile_picture_url = "") {profile_picture_url = "https://retrogamesnetwork.github.io/web/account/guest.png"};
 const full_name = prompt("For security reasons, please provide us with your full name (This data will not be shared)");
 
 // submit form
