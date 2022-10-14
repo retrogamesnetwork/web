@@ -20,12 +20,8 @@ firebase.initializeApp(firebaseConfig);
 // initialize database
 const db = firebase.database();
 
-var newLine = "\r\n"
 // get user's data
-const rules = alert("Welcome to the RETRO GAMES NETWORK Chatroom! Please abide by the rules when sending messages or using this service. All innaproprate images, videos, links, messages, or anything, is prohibited. Any spam, exploits, or lag scripts are not allowed and you can recieve serious consequences. And just be nice to others, no innaproprate language and basic things like those. Thank you, and have a wonderful time!")
-const username = prompt("Please enter your username");
-const profile_picture_url = prompt("Please paste the URL or Image Address for your profile picture. Innaproprate decals will be removed along with an account suspension");
-const conform = alert("Please conform the following information is correct" + newLine + "Username: " + username + newLine + "Profile Picture URL: " + profile_picture_url)
+const username = prompt("Welcome to the Retro Games Network Public Chatroom, Please enter a username to continue")
 
 // submit form
 // listen for submit event on the form and call the postChat function
@@ -52,8 +48,6 @@ function sendMessage(e) {
   db.ref("messages/" + timestamp).set({
     username,
     message,
-    profile_picture_url,
-    full_name,
   });
 }
 
@@ -66,7 +60,7 @@ fetchChat.on("child_added", function (snapshot) {
   const messages = snapshot.val();
   const message = `<li class=${
     username === messages.username ? "sent" : "receive"
-  }><span><strong style="font-size:large;"><img src=${messages.profile_picture_url} style="border:none;border-radius:100px;" width="30px"><span>  </span>${messages.username}<br></strong></span>${messages.message}</li><br>`;
+  }><span><strong>${messages.username}: </strong></span>${messages.message}</li>`;
   // append the message on the page
   document.getElementById("messages").innerHTML += message;
 });
