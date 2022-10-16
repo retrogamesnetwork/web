@@ -45,7 +45,7 @@ function sendMessage(e) {
     .scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" });
 
   // create db collection and send in the data
-  db.ref("messages/" + timestamp).set({
+  db.ref("channel-31231238482/" + timestamp).set({
     username,
     message,
   });
@@ -53,7 +53,7 @@ function sendMessage(e) {
 
 // display the messages
 // reference the collection created earlier
-const fetchChat = db.ref("messages/");
+const fetchChat = db.ref("channel-31231238482/");
 
 // check for new messages using the onChildAdded event listener
 fetchChat.on("child_added", function (snapshot) {
