@@ -21,7 +21,7 @@ firebase.initializeApp(firebaseConfig);
 const db = firebase.database();
 
 // get user's data
-const username = prompt("Welcome to CHATROOM 3128931982308930983089128093! \nPlease enter your username to continue!")
+const username = prompt("Welcome to CHATROOM 3128931982308930983089128093! \nPlease enter your username to continue!");
 
 // submit form
 // listen for submit event on the form and call the postChat function
