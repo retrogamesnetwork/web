@@ -68,9 +68,9 @@
     <input type="password" required class="form-control" placeholder="Enter password here" id="password">
   </div>
           <script>
-              var password = document.getElementById("password").value;
               
               function checkPassword() {
+                  var password = document.getElementById("password").value;
                 if (password = "rgnpass14!") {
                     document.location.href = "https://retrogamesnetwork.github.io/web/games.html";
                     localStorage.setItem("loggedin", "true");
