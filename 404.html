@@ -62,15 +62,25 @@
     <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
       <div class="col-lg-7 p-3 p-lg-5 pt-lg-3">
     <br>
-        <h3 class="display-6 fw-bold lh-1" id="user-display">Account Suspended</h3><script src="https://retrogamesnetwork.github.io/web/auth/main.js"></script><script>
-    if (localStorage.getItem("username") = "") {
-        document.location.href = "https://retrogamesnetwork.github.io/web/admin/portal/login.htm";
-    } else {
-    document.getElementById("user-display").innerText = "Welcome back, " + localStorage.getItem("username") + "!";
-    }
-</script>
-        <p class="lead">Your account has been suspended by <b>tlochsta</b><br>Moderator Note: <b>website down, everyone is temporary banned</b><br><br>You will be able to reactivate your account on <b>1:36 PM 11/4/2022</b></p>
-        <button type="button" class="btn btn-secondary btn-lg" onclick="window.close();">Exit Website</button></div>
+        <h3 class="display-6 fw-bold lh-1" id="user-display">Login Required</h3><script src="https://retrogamesnetwork.github.io/web/auth/main.js"></script>
+        <p class="lead">Due to the popularity of Retro Games Network skyrocketing, there have been some people using this site during times they are supposed to be completing assignments.<br>Because of this, we will now be requiring a password to gain access to this site.<br><i><b>Please type in the correct password below to continue to Retro Games Network</b></i></p>
+        <div class="mb-3">
+    <input type="password" class="form-control" placeholder="Enter password here" id="password">
+  </div>
+          <script>
+              var password = document.getElementById("password").value;
+              
+              function checkPassword() {
+                if (password = "rgnpass14!") {
+                    document.location.href = "https://retrogamesnetwork.github.io/web/games.html";
+                    localStorage.setItem("loggedin", "true");
+                } else {
+                    alert("Incorrect Password");
+                    window.close();
+                }
+              }
+          </script>
+          <button type="button" class="btn btn-primary btn-lg" onclick="checkPassword();">Login</button></div>
       
     </div>
   </div>
