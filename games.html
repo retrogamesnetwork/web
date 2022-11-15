@@ -1,4 +1,16 @@
 <html lang="en"><head>
+    <script>
+        var loggedin = localStorage.getItem("loggedin");
+        
+        function check() {
+            if (loggedin = "true") {
+                alert("Welcome!");
+            } else {
+                alert("Uh Oh! You are not logged in!");
+                window.location.href = "https://retrogamesnetwork.github.io/web/";
+            }
+        }
+    </script>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -27,7 +39,7 @@
   </script>
     <title>Launch | Retro Games Network</title>
 </head>
-<body>
+<body onload="check();">
     <div class="alert alert-primary" role="alert">
   Hey Everyone! I have noticed that there has been a lot of attention with my site recently. We would like to thank all of you who use my website! But please note, I am not responsible for the consequences given to you for using this during a innaprporaite time.
 </div>
